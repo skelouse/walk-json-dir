@@ -137,9 +137,9 @@ func valueOrDefault(c *cli.Command, flag *cli.StringFlag) string {
 }
 
 func main() {
-	rootFlag := &cli.StringFlag{
-		Name:        "root",
-		Aliases:     []string{"r"},
+	dirFlag := &cli.StringFlag{
+		Name:        "dir",
+		Aliases:     []string{"d"},
 		DefaultText: "./",
 		Usage:       "directory to search for JSON files",
 	}
@@ -153,14 +153,14 @@ func main() {
 	cmd := &cli.Command{
 		Description: "recursively scans the specified directory for JSON files, merging their contents into a single JSON file",
 		Flags: []cli.Flag{
-			rootFlag,
+			dirFlag,
 			outputFilePathFlag,
 		},
 		Action: func(ctx context.Context, c *cli.Command) error {
-			root := valueOrDefault(c, rootFlag)
+			dir := valueOrDefault(c, dirFlag)
 			outputFilePath := valueOrDefault(c, outputFilePathFlag)
 
-			return parse(root, outputFilePath)
+			return parse(dir, outputFilePath)
 		},
 	}
 

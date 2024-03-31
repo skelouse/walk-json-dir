@@ -16,7 +16,7 @@ go install github.com/skelouse/walk-json-dir@latest
 
 `walk-json-dir` provides the following options:
 
-- `-root` or `-r`: Specifies the root directory to search for JSON files. Default is the current directory (`./`).
+- `-dir` or `-d`: Specifies the directory to search for JSON files. Default is the current directory (`./`).
 - `-output-file-path` or `-o`: Specifies the path to the output JSON file. Default is `output.json` in the current directory.
 
 
@@ -27,7 +27,7 @@ walk-json-dir
 
 output all json files in a provided directory
 ```sh
-walk-json-dir -r <path/to/directory> -o <output/file/path>
+walk-json-dir -d <path/to/directory> -o <output/file/path>
 ```
 
 ## Example
